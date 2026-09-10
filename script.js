@@ -26,15 +26,24 @@ giftBtn.addEventListener("click", () => {
 musicBtn.addEventListener("click", async () => {
   try {
     if (music.paused) {
+      music.volume = 1;
       await music.play();
-      musicBtn.innerHTML = "❚❚ <span>pause</span>";
+
+      musicBtn.innerHTML = '❚❚ <span>pause</span>';
     } else {
       music.pause();
-      musicBtn.innerHTML = "♪ <span>music</span>";
+
+      musicBtn.innerHTML = '♪ <span>music</span>';
     }
-  } catch {
+  } catch (error) {
+    console.error("Music error:", error);
     showToast();
   }
+});
+
+music.addEventListener("error", () => {
+  console.error("File music.mp3 gagal dimuat:", music.error);
+  showToast();
 });
 
 function showToast(){
