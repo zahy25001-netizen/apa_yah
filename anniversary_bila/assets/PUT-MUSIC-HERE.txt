@@ -1,1 +1,0 @@
-Opsional: taruh musik MP3 bernama music.mp3 di folder assets.
